@@ -1,0 +1,12 @@
+C:\Users\Paula\Desktop\ReservationSystem\ReservationSystemAPI\ReservationSystemLibrary\bin\Debug\net6.0\ReservationSystemLibrary.deps.json
+C:\Users\Paula\Desktop\ReservationSystem\ReservationSystemAPI\ReservationSystemLibrary\bin\Debug\net6.0\ReservationSystemLibrary.dll
+C:\Users\Paula\Desktop\ReservationSystem\ReservationSystemAPI\ReservationSystemLibrary\bin\Debug\net6.0\ReservationSystemLibrary.pdb
+C:\Users\Paula\Desktop\ReservationSystem\ReservationSystemAPI\ReservationSystemLibrary\obj\Debug\net6.0\ReservationSystemLibrary.csproj.AssemblyReference.cache
+C:\Users\Paula\Desktop\ReservationSystem\ReservationSystemAPI\ReservationSystemLibrary\obj\Debug\net6.0\ReservationSystemLibrary.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Paula\Desktop\ReservationSystem\ReservationSystemAPI\ReservationSystemLibrary\obj\Debug\net6.0\ReservationSystemLibrary.AssemblyInfoInputs.cache
+C:\Users\Paula\Desktop\ReservationSystem\ReservationSystemAPI\ReservationSystemLibrary\obj\Debug\net6.0\ReservationSystemLibrary.AssemblyInfo.cs
+C:\Users\Paula\Desktop\ReservationSystem\ReservationSystemAPI\ReservationSystemLibrary\obj\Debug\net6.0\ReservationSystemLibrary.csproj.CoreCompileInputs.cache
+C:\Users\Paula\Desktop\ReservationSystem\ReservationSystemAPI\ReservationSystemLibrary\obj\Debug\net6.0\ReservationSystemLibrary.dll
+C:\Users\Paula\Desktop\ReservationSystem\ReservationSystemAPI\ReservationSystemLibrary\obj\Debug\net6.0\refint\ReservationSystemLibrary.dll
+C:\Users\Paula\Desktop\ReservationSystem\ReservationSystemAPI\ReservationSystemLibrary\obj\Debug\net6.0\ReservationSystemLibrary.pdb
+C:\Users\Paula\Desktop\ReservationSystem\ReservationSystemAPI\ReservationSystemLibrary\obj\Debug\net6.0\ref\ReservationSystemLibrary.dll
