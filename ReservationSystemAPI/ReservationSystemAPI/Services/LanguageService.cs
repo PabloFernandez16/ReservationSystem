@@ -35,6 +35,11 @@ namespace ReservationSystemAPI.Services
             throw new NotImplementedException();
         }
 
+        public Task<bool> SoftDelete(int id)
+        {
+            throw new NotImplementedException();
+        }
+
         public Task<bool> Update(int id, LanguageDTO oModel)
         {
             throw new NotImplementedException();

@@ -30,20 +30,25 @@ namespace WSVenta.Servicios
 
         public async Task<Guide> AddAsync(GuideDTO model)
         {
-            var entity = _mapper.Map<Guide>(model);
-            /*var entity = new Guide
+
+            using (var db = _context)
             {
-                GuideName = model.GuideName,
-                GuideLastName = model.GuideLastName,
-                Phone=model.Phone,
-                Email = model.Email,
-                LenguagesId = model.LenguagesId
-            };*/
+                var entity = _mapper.Map<Guide>(model);
+                
 
-            _context.Guides.Add(entity);
-            await _context.SaveChangesAsync();
+                db.Guides.Add(entity);
+                await _context.SaveChangesAsync();
 
-            return entity;
+                return entity;
+            }
+            /* var entity = Activator.CreateInstance<E>();
+        // Map model to entity here using AutoMapper or manually
+        // Example: AutoMapper.Mapper.Map(model, entity);
+        _dbSet.Add(entity);
+        await _context.SaveChangesAsync();
+        return entity;*/
+
+
         }
 
         public async Task<List<Guide>> GetAllAsync()
@@ -69,59 +74,36 @@ namespace WSVenta.Servicios
 
         public async Task<Guide> GetById(int id)
         {
-            var guideSelected = new Guide();
-            try
-            {
-                var guides =  await _context.Guides.ToListAsync();
-                guideSelected = guides.FirstOrDefault(g => g.Id == id); 
-            }
-            catch (Exception ex)
-            {
-                guideSelected = null;
-            }
-
-            return guideSelected;
+            return await _context.Guides.FindAsync(id);
         }
 
-        public async Task<bool> Update(int id, GuideDTO oGuide)
+        //public async Task<bool> Update(int id, GuideDTO oGuide)
+        public async Task<bool> Update(int id, GuideDTO oModel)
         {
-            bool updated = false;
-            var guideInDB = await _context.Guides.FirstOrDefaultAsync(d => d.Id == id);
-
-            try
+            var entity = await _context.Guides.FindAsync(id);
+            if (entity == null)
             {
-                if (guideInDB != null)
-                {
-                    _mapper.Map(oGuide, guideInDB);
-                    /*guideInDB.Email = oGuide.Email;
-                    guideInDB.GuideName = oGuide.GuideName;
-                    guideInDB.GuideLastName = oGuide.GuideLastName;
-                    guideInDB.Phone = oGuide.Phone;
-                    guideInDB.LenguagesId = oGuide.LenguagesId;*/
-
-                    _context.Guides.Update(guideInDB);
-                    _context.SaveChangesAsync();
-
-                    updated = true;
-                }
-                else
-                {
-                    updated = false;
-                }
-            }
-            catch (Exception)
-            {
-
-                throw;
+                return false;
             }
 
-            return updated;
+            _mapper.Map(oModel, entity);
 
+            _context.Entry(entity).State = EntityState.Modified;
+            await _context.SaveChangesAsync();
+            return true;
         }
 
-        public Task<bool> Delete(int id)
+        public async Task<bool> SoftDelete(int id)
         {
-            throw new NotImplementedException();
+            var entity = await _context.Guides.FindAsync(id);
+            if (entity == null)
+            {
+                return false;
+            }
+            entity.Active = false;
+
+            _context.SaveChangesAsync();
+            return true;
         }
     }
 

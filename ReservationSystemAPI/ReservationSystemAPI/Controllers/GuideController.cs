@@ -90,8 +90,22 @@ namespace ReservationSystemAPI.Controllers
 
         // DELETE api/<GuideController>/5
         [HttpDelete("{id}")]
-        public void Delete(int id)
+        public async Task<IActionResult> Delete(int id)
         {
+            var guide = await _service.GetById(id);
+
+            if (guide.Active == false)
+            {
+                return Ok("No eli");
+            }
+            else
+            {
+
+                _service.SoftDelete(id);
+            }
+
+
+            return Ok(guide);
         }
     }
 }

@@ -24,7 +24,8 @@ namespace ReservationSystemAPI.Models
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-           
+            if (!optionsBuilder.IsConfigured)
+            {}
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
@@ -34,6 +35,8 @@ namespace ReservationSystemAPI.Models
                 entity.ToTable("Guide");
 
                 entity.Property(e => e.Id).HasColumnName("ID");
+
+                entity.Property(e => e.Active).HasDefaultValueSql("((1))");
 
                 entity.Property(e => e.Email)
                     .HasMaxLength(50)

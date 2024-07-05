@@ -11,7 +11,7 @@ namespace ReservationSystemAPI.Repositories
 
         public Task<E> GetById(int id);
 
-        public Task<bool> Delete(int id);
+        public Task<bool> SoftDelete(int id);
 
         public Task<bool> Update(int id, D oModel);
 

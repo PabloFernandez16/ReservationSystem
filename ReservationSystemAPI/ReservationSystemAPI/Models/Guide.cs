@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace ReservationSystemAPI.Models
 {
-    public class Guide
+    public partial class Guide
     {
         public Guide()
         {
@@ -16,6 +16,7 @@ namespace ReservationSystemAPI.Models
         public string Phone { get; set; } = null!;
         public string Email { get; set; } = null!;
         public int LenguagesId { get; set; }
+        public bool? Active { get; set; }
 
         public virtual Lenguage Lenguages { get; set; } = null!;
         public virtual ICollection<Reservation> Reservations { get; set; }
